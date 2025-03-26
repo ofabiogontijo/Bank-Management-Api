@@ -8,6 +8,16 @@ public enum MessageType {
 
 	Internal_Architecture_Error("Ooops! some big problem found."),
 
+	Parameter_Error("A require param was missing, or malformed."),
+
+	Method_Not_Allowed("Method Not Allowed"),
+
+	Unsupported_Media_Type("The request entity is in a format not supported."),
+
+	Bad_Request_Error("Request invalid or malformed."),
+
+	Access_Denied("Access denied."),
+
 	Resource_Not_Found("Resource not found.");
 
 	private final String description;
