@@ -27,4 +27,8 @@ public class Account extends BankManagementAbstractEntity<Account>{
 
     private BigDecimal balance = ZERO;
 
+    static Account of(Account account) {
+        return new Account(account.getAccountNumber(), account.getBalance());
+    }
+
 }

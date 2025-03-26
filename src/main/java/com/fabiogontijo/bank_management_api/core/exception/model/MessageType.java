@@ -6,7 +6,9 @@ public enum MessageType {
 
 	Business_Logic_Error("Business logic error."),
 
-	Internal_Architecture_Error("Ooops! some big problem found.");
+	Internal_Architecture_Error("Ooops! some big problem found."),
+
+	Resource_Not_Found("Resource not found.");
 
 	private final String description;
 
