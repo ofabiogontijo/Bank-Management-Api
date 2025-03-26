@@ -1,0 +1,30 @@
+package com.fabiogontijo.bank_management_api.account;
+
+import com.fabiogontijo.bank_management_api.core.auditing.BankManagementAbstractEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+
+import static java.math.BigDecimal.ZERO;
+import static lombok.AccessLevel.PRIVATE;
+
+@Entity
+@Getter
+@EqualsAndHashCode
+@NoArgsConstructor(access = PRIVATE)
+@AllArgsConstructor(access = PRIVATE)
+public class Account extends BankManagementAbstractEntity<Account>{
+
+    @Id
+    @Column(name = "account_number")
+    private Integer accountNumber;
+
+    private BigDecimal balance = ZERO;
+
+}
