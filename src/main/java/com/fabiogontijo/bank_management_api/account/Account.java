@@ -13,13 +13,12 @@ import java.math.BigDecimal;
 
 import static java.math.BigDecimal.ZERO;
 import static lombok.AccessLevel.PRIVATE;
-import static lombok.AccessLevel.PUBLIC;
 
 @Entity
 @Getter
 @EqualsAndHashCode
-@NoArgsConstructor(access = PUBLIC)
-@AllArgsConstructor(access = PUBLIC)
+@NoArgsConstructor(access = PRIVATE)
+@AllArgsConstructor(access = PRIVATE)
 public class Account extends BankManagementAbstractEntity<Account> {
 
 	@Id

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-class TransactionFeeCalculatorService {
+public class TransactionFeeCalculatorService {
 
 	public BigDecimal calculateFee(BigDecimal amount, TransactionPaymentMethodEnum type) {
 		TransactionCalculateFeeStrategy strategy = getStrategy(type);

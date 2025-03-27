@@ -177,7 +177,6 @@
 									</limits>
 									<excludes>
 										<exclude>com.fabiogontijo.bank_management_api.core.*</exclude>
-										<exclude>com.fabiogontijo.bank_management_api.transaction.*</exclude>
 										<exclude>**.*Repository*</exclude>
 										<exclude>**.*Application</exclude>
 										<exclude>**.*Enum</exclude>
