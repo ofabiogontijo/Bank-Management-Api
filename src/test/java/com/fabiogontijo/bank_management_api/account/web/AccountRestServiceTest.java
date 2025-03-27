@@ -49,9 +49,11 @@ class AccountRestServiceTest extends TestSupport {
 	void should_retrieve_account_for_id() {
 		Account account = Fixture.from(Account.class).gimme(FixtureTemplates.VALID.name());
 
+		AccountDTO expectedAccountDTO = AccountDTO.of(account.getAccountNumber(), account.getBalance());
+
 		when(query.findById(any())).thenReturn(account);
 
-		assertEquals(account, restService.findById(any()));
+		assertEquals(expectedAccountDTO, restService.findById(any()));
 
 		InOrder inOrder = this.inOrder(query);
 		inOrder.verify(query).findById(any());

@@ -17,7 +17,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class AccountDTO {
 
-	@Column(name = "account_number")
+	@JsonProperty("numero_conta")
 	private Integer accountNumber;
 
 	@JsonProperty("saldo")

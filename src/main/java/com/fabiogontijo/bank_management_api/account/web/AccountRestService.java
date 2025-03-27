@@ -29,8 +29,9 @@ class AccountRestService {
 
 	@GetMapping
 	@ResponseStatus(OK)
-	Account findById(@RequestParam(required = false) Integer id) {
-		return query.findById(id);
+	AccountDTO findById(@RequestParam(required = false) Integer id) {
+		Account account = query.findById(id);
+		return AccountDTO.of(account.getAccountNumber(), account.getBalance());
 	}
 
 }
