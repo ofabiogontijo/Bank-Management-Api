@@ -1,7 +1,6 @@
 package com.fabiogontijo.bank_management_api.transaction.web;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,7 +16,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class TransactionDTO {
 
-	@Column(name = "account_number")
+	@JsonProperty("numero_conta")
 	private Integer accountNumber;
 
 	@JsonProperty("saldo")

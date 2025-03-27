@@ -119,6 +119,10 @@
 							<contractPackageRegex>accountcontractweb</contractPackageRegex>
 							<baseClassFQN>com.fabiogontijo.bank_management_api.account.web.AccountWebBase</baseClassFQN>
 						</baseClassMapping>
+						<baseClassMapping>
+							<contractPackageRegex>transactioncontractweb</contractPackageRegex>
+							<baseClassFQN>com.fabiogontijo.bank_management_api.transaction.web.TransactionWebBase</baseClassFQN>
+						</baseClassMapping>
 					</baseClassMappings>
 				</configuration>
 			</plugin>
