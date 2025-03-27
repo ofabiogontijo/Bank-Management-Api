@@ -24,10 +24,8 @@ public class Account extends BankManagementAbstractEntity<Account>{
 
     @Id
     @JsonProperty("numero_conta")
-    @Column(name = "account_number")
     private Integer accountNumber;
 
-    @JsonProperty("saldo")
     private BigDecimal balance = ZERO;
 
     static Account of(Account account) {

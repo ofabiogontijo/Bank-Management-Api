@@ -18,8 +18,9 @@ public class TransactionRestService {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    Transaction create(@Valid @RequestBody TransactionInput input) {
-        return command.create(input);
+    TransactionDTO create(@Valid @RequestBody TransactionInput input) {
+        Transaction transaction = command.create(input);
+        return TransactionDTO.of(transaction.getAccount().getAccountNumber(), transaction.getAccount().getBalance());
     }
 
 }

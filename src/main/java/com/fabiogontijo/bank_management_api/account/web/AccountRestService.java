@@ -22,8 +22,9 @@ class AccountRestService {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    Account create(@Valid @RequestBody Account account) {
-        return command.create(account);
+    AccountDTO create(@Valid @RequestBody Account account) {
+        account = command.create(account);
+        return AccountDTO.of(account.getAccountNumber(), account.getBalance());
     }
 
     @GetMapping

@@ -1,4 +1,4 @@
-package com.fabiogontijo.bank_management_api.system;
+package com.fabiogontijo.bank_management_api.core;
 
 import com.fabiogontijo.bank_management_api.core.auditing.AuditingDateTimeProvider;
 import com.fabiogontijo.bank_management_api.core.auditing.SpringSecurityAuditor;
