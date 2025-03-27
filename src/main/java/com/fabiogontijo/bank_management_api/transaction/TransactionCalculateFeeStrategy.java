@@ -2,6 +2,6 @@ package com.fabiogontijo.bank_management_api.transaction;
 
 import java.math.BigDecimal;
 
-interface TransactionStrategy {
+interface TransactionCalculateFeeStrategy {
     BigDecimal calculateFee(BigDecimal amount);
 }

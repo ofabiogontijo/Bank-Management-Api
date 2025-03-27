@@ -6,11 +6,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 @Component
-public class CreditoStrategy implements TransactionStrategy {
-    private static final BigDecimal FEE = new BigDecimal("0.05");
+class TransactionDebitoStrategy implements TransactionCalculateFeeStrategy {
+    private static final BigDecimal TAXA = new BigDecimal("0.03");
 
     @Override
     public BigDecimal calculateFee(BigDecimal amount) {
-        return amount.add(amount.multiply(FEE)).setScale(2, RoundingMode.HALF_UP);
+        return amount.add(amount.multiply(TAXA)).setScale(2, RoundingMode.HALF_UP);
     }
+
 }

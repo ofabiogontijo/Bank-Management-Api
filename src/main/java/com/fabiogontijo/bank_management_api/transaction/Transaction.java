@@ -2,6 +2,7 @@ package com.fabiogontijo.bank_management_api.transaction;
 
 import com.fabiogontijo.bank_management_api.account.Account;
 import com.fabiogontijo.bank_management_api.core.auditing.BankManagementAbstractEntity;
+import com.fabiogontijo.bank_management_api.transaction.web.TransactionInput;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,8 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
+import static com.fabiogontijo.bank_management_api.core.IdGenerator.generateId;
 import static lombok.AccessLevel.PRIVATE;
 
 @Entity
@@ -21,8 +22,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class Transaction extends BankManagementAbstractEntity<Transaction> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
@@ -30,8 +30,12 @@ public class Transaction extends BankManagementAbstractEntity<Transaction> {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_method")
-    private PaymentMethodEnum paymentMethod;
+    private TransactionPaymentMethodEnum paymentMethod;
 
     private BigDecimal amount;
+
+    static Transaction of(TransactionInput input, Account account) {
+        return new Transaction(generateId(), account, input.getPaymentMethod(), input.getAmount());
+    }
 
 }

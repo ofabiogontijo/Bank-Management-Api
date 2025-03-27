@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
-class PixStrategy implements TransactionStrategy {
+class TransactionPixStrategy implements TransactionCalculateFeeStrategy {
     @Override
     public BigDecimal calculateFee(BigDecimal amount) {
         return amount;
