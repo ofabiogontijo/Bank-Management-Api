@@ -4,6 +4,7 @@ import com.fabiogontijo.bank_management_api.core.BankManagementMessageSource;
 import com.fabiogontijo.bank_management_api.core.exception.BusinessLogicException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -27,6 +28,7 @@ public class AccountCommand {
 		return repository.save(Account.of(account));
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
 	public void debitBalance(Integer accountNumber, BigDecimal amount) {
 		if (!canDebit(accountNumber, amount)) {
 			throw new BusinessLogicException(
