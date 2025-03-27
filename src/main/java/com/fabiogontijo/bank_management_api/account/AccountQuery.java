@@ -11,13 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class AccountQuery {
 
-    private final AccountRepository repository;
+	private final AccountRepository repository;
 
-    private final BankManagementMessageSource messageSource;
+	private final BankManagementMessageSource messageSource;
 
-    public Account findById(Integer id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(messageSource.getMessage("account.not.found"), true));
-    }
+	public Account findById(Integer id) {
+		return repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException(messageSource.getMessage("account.not.found"), true));
+	}
 
 }

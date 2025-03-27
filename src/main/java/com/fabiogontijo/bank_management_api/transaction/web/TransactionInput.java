@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 @Setter
 public class TransactionInput {
 
-    @JsonProperty("forma_pagamento")
-    private TransactionPaymentMethodEnum paymentMethod;
+	@JsonProperty("forma_pagamento")
+	private TransactionPaymentMethodEnum paymentMethod;
 
-    @JsonProperty("numero_conta")
-    private Integer account;
+	@JsonProperty("numero_conta")
+	private Integer account;
 
-    @JsonProperty("valor")
-    private BigDecimal amount;
+	@JsonProperty("valor")
+	private BigDecimal amount;
 
 }

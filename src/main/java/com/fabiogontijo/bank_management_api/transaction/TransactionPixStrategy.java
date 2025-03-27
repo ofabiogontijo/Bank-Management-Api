@@ -6,8 +6,10 @@ import java.math.BigDecimal;
 
 @Component
 class TransactionPixStrategy implements TransactionCalculateFeeStrategy {
-    @Override
-    public BigDecimal calculateFee(BigDecimal amount) {
-        return amount;
-    }
+
+	@Override
+	public BigDecimal calculateFee(BigDecimal amount) {
+		return amount;
+	}
+
 }

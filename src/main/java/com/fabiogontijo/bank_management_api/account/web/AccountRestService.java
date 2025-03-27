@@ -16,21 +16,21 @@ import static org.springframework.http.HttpStatus.OK;
 @RequestMapping(value = "/conta", produces = MediaType.APPLICATION_JSON_VALUE)
 class AccountRestService {
 
-    private final AccountCommand command;
+	private final AccountCommand command;
 
-    private final AccountQuery query;
+	private final AccountQuery query;
 
-    @PostMapping
-    @ResponseStatus(CREATED)
-    AccountDTO create(@Valid @RequestBody Account account) {
-        account = command.create(account);
-        return AccountDTO.of(account.getAccountNumber(), account.getBalance());
-    }
+	@PostMapping
+	@ResponseStatus(CREATED)
+	AccountDTO create(@Valid @RequestBody Account account) {
+		account = command.create(account);
+		return AccountDTO.of(account.getAccountNumber(), account.getBalance());
+	}
 
-    @GetMapping
-    @ResponseStatus(OK)
-    Account findById(@RequestParam(required = false) Integer id) {
-        return query.findById(id);
-    }
+	@GetMapping
+	@ResponseStatus(OK)
+	Account findById(@RequestParam(required = false) Integer id) {
+		return query.findById(id);
+	}
 
 }

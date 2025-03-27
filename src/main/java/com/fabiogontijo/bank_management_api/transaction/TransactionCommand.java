@@ -15,19 +15,19 @@ import java.math.BigDecimal;
 @Transactional(rollbackFor = Exception.class)
 public class TransactionCommand {
 
-    private final TransactionRepository repository;
+	private final TransactionRepository repository;
 
-    private final AccountQuery accountQuery;
+	private final AccountQuery accountQuery;
 
-    private final AccountCommand accountCommand;
+	private final AccountCommand accountCommand;
 
-    private final TransactionFeeCalculatorService calculatorService;
+	private final TransactionFeeCalculatorService calculatorService;
 
-    public Transaction create(TransactionInput input) {
-        BigDecimal fee = calculatorService.calculateFee(input.getAmount(), input.getPaymentMethod());
-        accountCommand.debitBalance(input.getAccount(), fee);
-        Account account = accountQuery.findById(input.getAccount());
-        return repository.save(Transaction.of(input, account));
-    }
+	public Transaction create(TransactionInput input) {
+		BigDecimal fee = calculatorService.calculateFee(input.getAmount(), input.getPaymentMethod());
+		accountCommand.debitBalance(input.getAccount(), fee);
+		Account account = accountQuery.findById(input.getAccount());
+		return repository.save(Transaction.of(input, account));
+	}
 
 }

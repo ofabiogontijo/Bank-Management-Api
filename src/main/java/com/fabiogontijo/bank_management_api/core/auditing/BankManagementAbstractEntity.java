@@ -21,7 +21,7 @@ import java.time.Instant;
 @EqualsAndHashCode
 @NoArgsConstructor
 @ToString(callSuper = true)
-@EntityListeners({ AuditingEntityListener.class})
+@EntityListeners({ AuditingEntityListener.class })
 public abstract class BankManagementAbstractEntity<T> implements Serializable {
 
 	@CreatedDate

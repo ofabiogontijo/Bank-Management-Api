@@ -9,8 +9,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class IdGenerator {
 
-    public static String generateId() {
-        return UUID.randomUUID().toString();
-    }
+	public static String generateId() {
+		return UUID.randomUUID().toString();
+	}
 
 }

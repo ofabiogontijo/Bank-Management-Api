@@ -16,7 +16,7 @@ import java.time.ZoneId;
 @Configuration
 @EnableJpaAuditing
 @EnableTransactionManagement
-@EntityScan(basePackages = { "com.fabiogontijo.bank_management_api"})
+@EntityScan(basePackages = { "com.fabiogontijo.bank_management_api" })
 public class DomainConfiguration {
 
 	private static final String TIMEZONE = "GMT-3";

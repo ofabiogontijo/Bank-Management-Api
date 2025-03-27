@@ -7,21 +7,23 @@ import java.math.BigDecimal;
 
 @Service
 class TransactionFeeCalculatorService {
-    public BigDecimal calculateFee(BigDecimal amount, TransactionPaymentMethodEnum type) {
-        TransactionCalculateFeeStrategy strategy = getStrategy(type);
-        return strategy.calculateFee(amount);
-    }
 
-    private TransactionCalculateFeeStrategy getStrategy(TransactionPaymentMethodEnum type) {
-        switch (type) {
-            case D:
-                return BeanUtil.getBean(TransactionDebitoStrategy.class);
-            case C:
-                return BeanUtil.getBean(TransactionCreditoStrategy.class);
-            case P:
-                return BeanUtil.getBean(TransactionPixStrategy.class);
-            default:
-                throw new IllegalArgumentException("Unsupported transaction type: " + type);
-        }
-    }
+	public BigDecimal calculateFee(BigDecimal amount, TransactionPaymentMethodEnum type) {
+		TransactionCalculateFeeStrategy strategy = getStrategy(type);
+		return strategy.calculateFee(amount);
+	}
+
+	private TransactionCalculateFeeStrategy getStrategy(TransactionPaymentMethodEnum type) {
+		switch (type) {
+		case D:
+			return BeanUtil.getBean(TransactionDebitoStrategy.class);
+		case C:
+			return BeanUtil.getBean(TransactionCreditoStrategy.class);
+		case P:
+			return BeanUtil.getBean(TransactionPixStrategy.class);
+		default:
+			throw new IllegalArgumentException("Unsupported transaction type: " + type);
+		}
+	}
+
 }

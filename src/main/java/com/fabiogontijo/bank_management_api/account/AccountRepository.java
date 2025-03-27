@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 
 interface AccountRepository extends JpaRepository<Account, Integer> {
 
-    @Modifying
-    @Query("UPDATE Account a SET a.balance = a.balance - :amount WHERE a.accountNumber = :accountNumber")
-    Integer debitBalance(int accountNumber, BigDecimal amount);
+	@Modifying
+	@Query("UPDATE Account a SET a.balance = a.balance - :amount WHERE a.accountNumber = :accountNumber")
+	Integer debitBalance(int accountNumber, BigDecimal amount);
 
 }

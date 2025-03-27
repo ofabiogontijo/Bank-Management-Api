@@ -7,10 +7,12 @@ import java.math.RoundingMode;
 
 @Component
 public class TransactionCreditoStrategy implements TransactionCalculateFeeStrategy {
-    private static final BigDecimal FEE = new BigDecimal("0.05");
 
-    @Override
-    public BigDecimal calculateFee(BigDecimal amount) {
-        return amount.add(amount.multiply(FEE)).setScale(2, RoundingMode.HALF_UP);
-    }
+	private static final BigDecimal FEE = new BigDecimal("0.05");
+
+	@Override
+	public BigDecimal calculateFee(BigDecimal amount) {
+		return amount.add(amount.multiply(FEE)).setScale(2, RoundingMode.HALF_UP);
+	}
+
 }

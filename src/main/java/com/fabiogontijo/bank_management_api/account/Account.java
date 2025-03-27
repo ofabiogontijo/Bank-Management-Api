@@ -13,22 +13,23 @@ import java.math.BigDecimal;
 
 import static java.math.BigDecimal.ZERO;
 import static lombok.AccessLevel.PRIVATE;
+import static lombok.AccessLevel.PUBLIC;
 
 @Entity
 @Getter
 @EqualsAndHashCode
-@NoArgsConstructor(access = PRIVATE)
-@AllArgsConstructor(access = PRIVATE)
-public class Account extends BankManagementAbstractEntity<Account>{
+@NoArgsConstructor(access = PUBLIC)
+@AllArgsConstructor(access = PUBLIC)
+public class Account extends BankManagementAbstractEntity<Account> {
 
-    @Id
-    @JsonProperty("numero_conta")
-    private Integer accountNumber;
+	@Id
+	@JsonProperty("numero_conta")
+	private Integer accountNumber;
 
-    private BigDecimal balance = ZERO;
+	private BigDecimal balance = ZERO;
 
-    static Account of(Account account) {
-        return new Account(account.getAccountNumber(), account.getBalance());
-    }
+	static Account of(Account account) {
+		return new Account(account.getAccountNumber(), account.getBalance());
+	}
 
 }

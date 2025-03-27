@@ -17,10 +17,10 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class AccountDTO {
 
-    @Column(name = "account_number")
-    private Integer accountNumber;
+	@Column(name = "account_number")
+	private Integer accountNumber;
 
-    @JsonProperty("saldo")
-    private BigDecimal balance;
+	@JsonProperty("saldo")
+	private BigDecimal balance;
 
 }
